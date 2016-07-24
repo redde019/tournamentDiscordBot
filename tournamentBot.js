@@ -6,7 +6,6 @@ var Discord = require("discord.js");
 var bot = new Discord.Client();
 
 var teams = [];
-var aliases;
 
 bot.on("ready", function() {
 	console.log("Ready to begin! Serving in " + bot.channels.length + " channels");
@@ -68,7 +67,7 @@ var commands = {
 		process: function(bot, msg, suffix) {
 			var tempTeam = [];
 			var teamFound = false;
-            for (var i = 0; i < teams.length; ++i){
+			for (var i = 0; i < teams.length; ++i){
 				if(teams[i] == suffix || teams[i] == "*$*"+suffix){
 					teams.splice(i,1);
 					teamFound = true;
@@ -168,9 +167,6 @@ var commands = {
 						atLeastOne = true;
 						tempTeamList = tempTeamList + teams[i]+ "\n";
 					}
-					
-					
-					
 				}
 				if(atLeastOne){
 					bot.sendMessage(msg.channel, tempTeamList);
@@ -268,5 +264,4 @@ bot.on("message", function (msg) {
 
 
 
-bot.login("oppoBotSorter@gmail.com", "H4]C=$n#rM`?9EAL");
 
